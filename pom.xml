@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.auzmor</groupId>
-    <artifactId>aurmor-api</artifactId>
+    <artifactId>auzmor-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>aurmor-api Webapp</name>
-    <url>http://localhost:7070/</url>
+    <name>auzmor-api Webapp</name>
+    <url>http://localhost:8080/</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
