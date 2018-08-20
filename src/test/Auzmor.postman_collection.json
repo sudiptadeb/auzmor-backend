@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "5cf02575-eb23-459b-a2f9-aa9182855ce4",
+		"name": "Auzmor",
+		"description": "List of Cases for Auzmor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/ - Call to undefined URI",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080",
+					"host": [
+						"localhost"
+					],
+					"port": "8080"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/inbound/sms - Method other than POST",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/inbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/inbound/sms - Without Authorization Header",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/inbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/inbound/sms - Wrong Credentials",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "asdasdasd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "asdasd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/inbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/inbound/sms - Correct Credentials but missing parameters",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/inbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/inbound/sms - parameter shorter than min length",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nfrom:\"\",\nto:\"\",\ntext:\"\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/inbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/inbound/sms - to parameter not found in account",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nfrom:\"123456\",\nto:\"1234567890\",\ntext:\"some hello\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/inbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/inbound/sms - All Good - STOP msg recieved",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nfrom:\"441224980094\",\nto:\"4924195509198\",\ntext:\"STOP\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/inbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/outbound/sms - Correct Credentials but missing parameters",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/outbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"outbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/outbound/sms - parameter shorter than min length",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nfrom:\"1234567890\",\nto:\"\",\ntext:\"\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/outbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"outbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/outbound/sms - parameter longer than max length",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nfrom:\"1234567890\",\nto:\"12345678901234567890\",\ntext:\"\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/outbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"outbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/outbound/sms - from parameter not found in account",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nfrom:\"not-in-table\",\nto:\"1234567890\",\ntext:\"some hello\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/outbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"outbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/outbound/sms - blocked by STOP request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nto:\"441224980094\",\nfrom:\"4924195509198\",\ntext:\"Hello dear\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/outbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"outbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/outbound/sms - All Good. Outbound msg ok",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "20S0KPNOIM",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "azr1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\nto:\"not-blocked\",\nfrom:\"4924195509198\",\ntext:\"Hello\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/outbound/sms",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"outbound",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
